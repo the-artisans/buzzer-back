@@ -4,12 +4,17 @@
   "description": "Investments simplified",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "deploy": "git push heroku master"
+    "start": "nodemon index.js",
+    "deploy": "git push heroku master",
+    "start-db": "mongod --dbpath=./data"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "mongodb": "^2.2.25"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }
