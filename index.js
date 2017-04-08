@@ -1,20 +1,22 @@
 const express = require('express')
-const db = require('./mongo');
+const bodyParser = require('body-parser');
 const app = express()
+
+const usersEndpoint = require('./api/users');
+const userFollowingEndpoint = require('./api/user-following');
 
 app.set('port', (process.env.PORT || 5000));
 
-app.get('/', function (req, res) {
-  db.execute().then(function (mongo) {
-    return new Promise(resolve => {
-      db.findDocuments(mongo, d => {
-        res.send(JSON.stringify(d));
-        resolve();
-      });
-    });
-  });
-})
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.get('/users', usersEndpoint.get);
+app.post('/users', usersEndpoint.post);
+app.delete('/users', usersEndpoint.del);
+
+app.get('/users/:userId/following', userFollowsEndpoint.get);
+app.post('/users/:userId/follow/:targetUserId', userFollowsEndpoint.post);
 
 app.listen(app.get('port'), function () {
   console.log(`Example app listening on port ${app.get('port')}!`)
-})
+});
