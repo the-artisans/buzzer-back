@@ -47,13 +47,6 @@ function addProductToUser(req, res) {
   });
 }
 
-// function updateProduct(req, res) {
-//   // database.Product.find().exec((error, products) => {
-//   // });
-
-//   database.Product.update({}, {mimickUser: "58e8d7e6a4f8e33ec891e709"});
-// }
-
 function addOverallReportToUser(req, res) {
   database.User.findOne({_id: req.body.userId}).populate("products").exec((err, user) => {
     if(err) {
@@ -126,7 +119,7 @@ function getDashboardInfoByUser(req, res) {
       return res.sendStatus(500);
     }
 
-    console.log("!!! user", user.products[0].mimickUser.emailHash);
+    // console.log("!!! user", user.products[0].mimickUser);
 
     return res.send({result: user});
   });

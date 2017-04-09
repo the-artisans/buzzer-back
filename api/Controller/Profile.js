@@ -10,8 +10,6 @@ exports.getProfileInfoByUser = (req, res) => {
       return res.sendStatus(500);
     }
 
-    console.log("!!! profileInfo", profileInfo);
-
     return res.send(profileInfo);
   })
 };

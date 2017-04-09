@@ -1,8 +1,5 @@
-var mongoose = require("mongoose");
-// const assert = require("assert");
-
+const mongoose = require("mongoose");
 const User = require("./model/user.model");
-// const UserFollow = require("./model/user-follow.model");
 const Portfolio = require("./model/portfolio.model");
 const Product = require("./model/product.model");
 const DetailReport = require("./model/detailReport.model");
@@ -20,6 +17,12 @@ mongoose.Promise = global.Promise
 mongoose.connect(url);
 
 // User.updateMany({}, {$rename:{"following":"followingUsers"}});
-Product.update({}, {mimickUser: "58e8d7e6a4f8e33ec891e709"});
+// Product.update({_id: "58e9fad0820d04e951577c10"}, {rateOfRoi: -0.006}, {multi: false}, (error, numberAffected) => {
+//   if(error) {
+//     console.error(error);
+//     return;
+//   }
+//   console.log("!!! numberAffected", numberAffected);
+// });
 
 module.exports = { User, Portfolio, Product, DetailReport, OverallReport };
