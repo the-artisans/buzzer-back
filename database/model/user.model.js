@@ -19,8 +19,14 @@ var userSchema = new Schema({
   deleted: { type: Boolean, default: false }
 });
 
+userSchema.set("toJSON", { virtuals: true });
+userSchema.set("toObject", { virtuals: true });
+
 userSchema.virtual("emailHash").get(function() {
-  return md5(this.email);
+  if(this.email) {
+    return md5(this.email);
+  }
+  return this.email;
 });
 
 module.exports = mongoose.model("User", userSchema);
