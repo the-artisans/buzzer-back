@@ -15,6 +15,10 @@ exports.getProfileInfoByUser = (userId, cb) => {
       return cb(error);
     }
 
+    if(!user) {
+      return cb("Can't find the user: " + userId);
+    }
+
     user = user.toObject();
 
     user.followingCount = user.following.length;
