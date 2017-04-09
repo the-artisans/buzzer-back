@@ -3,11 +3,11 @@ const cors = require('cors')
 const bodyParser = require("body-parser");
 const app = express();
 
-const API_PATH = "./api/";
-const dashboardEndpoint = require(`${API_PATH}dashboard`);
-const followingEndpoint = require(`${API_PATH}following`);
-const portfolioEndPoint = require(`${API_PATH}Controller/Portfolio`);
-const rankingEndpoint = require(`${API_PATH}Controller/Ranking`);
+const ENDPOINT_PATH = "./api/Controller/";
+const dashboardEndpoint = require(`${ENDPOINT_PATH}Dashboard`);
+const followingEndpoint = require(`${ENDPOINT_PATH}Following`);
+const portfolioEndPoint = require(`${ENDPOINT_PATH}Portfolio`);
+const rankingEndpoint = require(`${ENDPOINT_PATH}Ranking`);
 
 // const userFollowingEndpoint = require("./api/user-following");
 
