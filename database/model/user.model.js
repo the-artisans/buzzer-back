@@ -10,6 +10,7 @@ var userSchema = new Schema({
   mimickedCount: { type: Number, default: 0 },
   mimicking: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
   availableAmount: { type: Number, default: 0 },
+  products: [{ type: mongoose.Schema.Types.ObjectId, ref: "Product" }],
   portfolios: [{ type: mongoose.Schema.Types.ObjectId, ref: "Portfolio" }],
   overallReport: { type: mongoose.Schema.Types.ObjectId, ref: "OverallReport" },
   detailReport: { type: mongoose.Schema.Types.ObjectId, ref: "DetailReport" },

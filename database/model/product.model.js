@@ -8,7 +8,9 @@ var productSchema = new Schema({
   startPrice: Number,
   endPrice: Number,
   unitNumber: Number,
-  rateOfRoi: Number
+  rateOfRoi: Number,
+  sold: { type: Boolean, default: false },
+  mimickUser: { type: Schema.Types.ObjectId, ref: "User" }
 });
 
 module.exports = mongoose.model("Product", productSchema);
