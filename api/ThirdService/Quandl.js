@@ -12,10 +12,16 @@ exports.getLatestDJIA = (cb) => {
       return cb("Something's wrong");
     }
 
+    var body = "";
+
     res.on("data", (d) => {
-      var data = JSON.parse(d.toString("utf8"));
-      return cb(null, data.dataset.data[0][1]);
+      body = body + d;
     });
+
+    res.on("end", () => {
+      return cb(null, body);
+    });
+
   }).on("error", (e) => {
     return cb("Something's wrong");
   });
