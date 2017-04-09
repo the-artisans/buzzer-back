@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-const assert = require("assert");
+// const assert = require("assert");
 
 const User = require("./model/user.model");
 const UserFollow = require("./model/user-follow.model");

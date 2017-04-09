@@ -6,11 +6,7 @@ var portfolioSchema = new Schema({
   startTime: { type: String, default: moment().format("x") },
   endTime: String,
   type: { type: String, default: "Stock" },
-  products: [{
-    name: String,
-    price: Number,
-    unitNumber: { type: Number, default: 0 }
-  }],
+  products: [{ type: mongoose.Schema.Types.ObjectId, ref: "Product" }],
   report: { type: mongoose.Schema.Types.ObjectId, ref: "DetailReport" }
 });
 
