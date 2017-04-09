@@ -112,6 +112,9 @@ function getDashboardInfoByUser(req, res) {
       // match: {
       //   sold: false
       // }
+      populate: {
+        path: "mimickUser"
+      }
     }, {
       path: "overallReport"
     }]

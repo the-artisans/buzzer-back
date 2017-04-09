@@ -1,5 +1,6 @@
-var mongoose = require("mongoose");
-var Schema = mongoose.Schema;
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+const md5 = require("md5");
 
 var userSchema = new Schema({
   name: { type: String, required: true },
@@ -16,6 +17,10 @@ var userSchema = new Schema({
   detailReport: { type: mongoose.Schema.Types.ObjectId, ref: "DetailReport" },
   // style: ,
   deleted: { type: Boolean, default: false }
+});
+
+userSchema.virtual("emailHash").get(function() {
+  return md5(this.email);
 });
 
 module.exports = mongoose.model("User", userSchema);
