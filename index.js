@@ -6,8 +6,9 @@ const app = express();
 const ENDPOINT_PATH = "./api/Controller/";
 const dashboardEndpoint = require(`${ENDPOINT_PATH}Dashboard`);
 const followingEndpoint = require(`${ENDPOINT_PATH}Following`);
-const portfolioEndPoint = require(`${ENDPOINT_PATH}Portfolio`);
+const portfolioEndpoint = require(`${ENDPOINT_PATH}Portfolio`);
 const rankingEndpoint = require(`${ENDPOINT_PATH}Ranking`);
+const profileEndpoint = require(`${ENDPOINT_PATH}Profile`);
 
 // const userFollowingEndpoint = require("./api/user-following");
 
@@ -35,11 +36,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post("/dashboard", dashboardEndpoint.getDashboardInfoByUser);
 
 // Portfolio Management Page
-app.post("/portfolio", portfolioEndPoint.getAllProductsByUser);
-app.post("/product/sell", portfolioEndPoint.sellProducts);
+app.post("/portfolio", portfolioEndpoint.getAllProductsByUser);
+app.post("/product/sell", portfolioEndpoint.sellProducts);
 // app.post("/followings", followingEndpoint.getAllFollowingUsersWithInfo);
 
 // Report/Public Profile Page
+app.post("/profile", profileEndpoint.getProfileInfoByUser);
 
 
 // My Following Page
